@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NavController {
 
 	//Mapping of register form or displaying a html page
-	//because html page is not display directly i need controller for mapping 
+	//because html to html page is not display directly i need controller for mapping 
 	@GetMapping("/map-register")
 	
 	//this method return register form on client side

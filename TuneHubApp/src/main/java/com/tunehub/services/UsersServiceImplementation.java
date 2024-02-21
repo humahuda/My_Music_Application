@@ -65,7 +65,7 @@ public class UsersServiceImplementation implements UsersService{
 	}
 
 	@Override
-	public String getRoll(String email) {
+	public String getRole(String email) {
 		return (repo.findByEmail(email).getRole());
 	}
 

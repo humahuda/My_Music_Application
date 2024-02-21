@@ -34,18 +34,18 @@ public class PlayListController {
 	UsersService userS;
 
 	//mapping of createplaylist from
-@GetMapping("/createplaylist")
-public String createPlayList(Model model)
-{
-	//fetch the data from database using song service and store in the variable as a list
-	List<Song> songList =  songS.getAllSongs();
-	
-	//adding the songs in the model 
-	model.addAttribute("songList", songList);
-	
-	//this method return create playlist form
-	return "createplaylist";
-}
+	@GetMapping("/createplaylist")
+	public String createPlayList(Model model) {
+		
+		//Fetching the songs using song service
+		List<Song> songslist=songS.getAllSongs();
+		
+		//Adding the songs in the model
+		model.addAttribute("songslist",songslist);
+		
+		//sending createplaylist
+		return "createplaylist";
+	}
 
 //mapping of addplaylist
 @PostMapping("/addplaylist")
@@ -55,8 +55,8 @@ public String addPlayList(@ModelAttribute PlayList playlist) {
 	
 	//update song table
 	
-	List<Song> songsList= playlist.getSong();
-	for(Song song : songsList) {
+	List<Song> songslist= playlist.getSong();
+	for(Song song : songslist) {
 		song.getPlayList().add(playlist);
 		songS.updateSong(song);
 	}
@@ -91,5 +91,46 @@ public String viewCusPlaylist(HttpSession session, Model model) {
 			return "makepayment";
 		}
 }
+
+//@GetMapping("/createcustplaylist")
+//public String createCusPlayList(Model model)
+//{
+//	//fetch the data from database using song service and store in the variable as a list
+//	List<Song> songList =  songS.getAllSongs();
+//	System.out.println(songList);
+//	//adding the songs in the model 
+//	model.addAttribute("songList", songList);
+//	
+//	//this method return create playlist form
+//	return "createcustplaylist";
+//}
+//
+////mapping of addplaylist
+//@PostMapping("/addcustplaylist")
+//public String addCustPlayList(@ModelAttribute PlayList playlist) {
+//	//adding playlist
+//	playService.addPlayList(playlist);
+//	
+//	//update song table
+//	
+//	List<Song> songsList= playlist.getSong();
+//	for(Song song : songsList) {
+//		song.getCustomerplayList().add(playlist);
+//		songS.updateSong(song);
+//	}
+//	
+//	return "playlistsuccess";
+//}
+//
+//
+//@GetMapping("/viewcustplaylist")
+//public String viewCustPlaylists(Model model) {
+//	List<PlayList> plist= playService.getAllSongs();
+////	System.out.println(plist);
+//	model.addAttribute("plist", plist);
+//	return "viewcustplaylist";
+//}
+
+
 }
 

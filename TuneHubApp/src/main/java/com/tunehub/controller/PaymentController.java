@@ -93,7 +93,7 @@ public class PaymentController {
 	@GetMapping("payment-failure")
 	public String paymentFailure(){
 		//payment-error page
-		return "login";
+		return "makepayment";
 	}
 	
 }

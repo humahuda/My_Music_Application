@@ -72,12 +72,12 @@ public class UsersController {
 		{
 		
 		
-		//if user input password match with existing password you successfully login and have two option
-		if(userv.validateUser(email, password)==true)
+		//if user input password match with existing password you successfully login and user have two option
+		if(userv.validateUser(email, password) == true)
 		{
 			session.setAttribute("email", email);
 			//1.if your role match with admin u land admin home page
-			if(userv.getRoll(email).equals("admin"))
+			if(userv.getRole(email).equals("admin"))
 			{
 			return "adminhome";
 			}

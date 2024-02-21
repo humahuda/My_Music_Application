@@ -7,7 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+
 
 @Entity
 public class PlayList {
@@ -19,17 +20,21 @@ public class PlayList {
 	
 	@ManyToMany
 	List<Song> song;
+	
+	
+	
 
 	public PlayList() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PlayList(int id, String playListName, List<Song> song) {
+	public PlayList(int id, String playListName, List<Song> song ) {
 		super();
 		this.id = id;
 		this.playListName = playListName;
 		this.song = song;
+		
 	}
 
 	public int getId() {
@@ -56,12 +61,12 @@ public class PlayList {
 		this.song = song;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "PlayList [id=" + id + ", playListName=" + playListName + ", song=" + song + "]";
+		return "PlayList [id=" + id + ", playListName=" + playListName + ", song=" + song+"]";
 	}
 
 	
-	
-
 }

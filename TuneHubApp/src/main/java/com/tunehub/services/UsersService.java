@@ -11,7 +11,7 @@ public interface UsersService {
 
 	public boolean validateUser(String email, String password);
 	
-	public String getRoll(String email);
+	public String getRole(String email);
 
 	public Users getUser(String email);
 
